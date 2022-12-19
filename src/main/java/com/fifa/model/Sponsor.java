@@ -12,21 +12,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.Instant;
-
 @Entity
-@Table(name = "play_against")
+@Table(name = "Sponsor")
 @Getter
 @Setter
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class play_against {
+public class Sponsor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Instant date;
-
-    private String stadium;
+    private String name_sponsor;
 }

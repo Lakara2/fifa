@@ -9,17 +9,17 @@ public class TeamRestMapper {
     public TeamResponse toRest(Team team){
         return TeamResponse.builder()
                 .id(team.getId())
-                .name(team.getName())
+                .name(team.getName_team())
                 .build();
     }
     public Team toDownDomain(TeamResponse rest){
         return Team.builder()
-                .Name(rest.getName()).build();
+                .Name_team(rest.getName()).build();
     }
     public Team toUpDomain(TeamResponse Update){
         return Team.builder()
                 .id(Update.getId())
-                .Name(Update.getName())
+                .Name_team(Update.getName())
                 .build();
     }
 

@@ -22,12 +22,12 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class team {
+public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String Name;
+    private String Name_team;
     @OneToOne
-    @JoinColumn(name = "play_against")
-    private play_against id_play;
+    @JoinColumn(name = "Play_against")
+    private Play_against id_play;
 }

@@ -1,7 +1,7 @@
 package com.fifa.repository;
 
-import com.fifa.model.player;
+import com.fifa.model.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PlayerRepository extends JpaRepository<player, String> {
+public interface PlayerRepository extends JpaRepository<Player, String> {
 }
