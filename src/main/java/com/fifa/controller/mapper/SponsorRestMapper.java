@@ -1,17 +1,15 @@
 package com.fifa.controller.mapper;
 
-import com.fifa.controller.response.TeamResponse;
-import com.fifa.model.Team;
+import com.fifa.controller.response.SponsorResponse;
+import com.fifa.model.Sponsor;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TeamRestMapper {
-    public TeamResponse toRest(Team team){
-        return TeamResponse.builder()
-                .id_team(team.getId())
-                .name_team(team.getName_team())
-                .Players(team.getPlayers())
-                .Sponsor(team.getSponsor())
+public class SponsorRestMapper {
+    public SponsorResponse toRest(Sponsor sponsor){
+        return SponsorResponse.builder()
+                .id_sponsor(sponsor.getId())
+                .Name_sponsor(sponsor.getName_sponsor())
                 .build();
     }
     /**

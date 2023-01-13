@@ -1,0 +1,325 @@
+openapi: 3.0.0
+servers:
+  - url: https://prog3_td2
+info:
+  version: "latest"
+  title: PROG3 - TD2
+paths:
+  /play:
+    get:
+      tags:
+        - Play
+      summary: get all play
+      operationId: getPlay
+      responses:
+        '200':
+          description: List of play
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Play'
+        '500':
+          description: Internal server error
+        '400':
+          description: 404 Not Found
+#    post:
+#      tags:
+#        - Play
+#      summary: create new play
+#      operationId: createPlay
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/CreatePlay'
+#      responses:
+#        '200':
+#          description: List of created play
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Play'
+#        '500':
+#          description: Internal server error
+  /team:
+    get:
+      tags:
+        - Team
+      summary: get all team
+      operationId: getTeam
+      responses:
+        '200':
+          description: List of team
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '500':
+          description: Internal server error
+#    post:
+#      tags:
+#        - Teams
+#      summary: create new teams
+#      operationId: createTeams
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/CreateTeam'
+#      responses:
+#        '200':
+#          description: List of created play
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Team'
+#        '500':
+#          description: Internal server error
+  /player:
+    get:
+      tags:
+        - Player
+      summary: get all player
+      operationId: getPlayer
+      responses:
+        '200':
+          description: List of player
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '500':
+          description: Internal server error
+#    post:
+#      tags:
+#        - Player
+#      summary: create new player
+#      operationId: createPlayer
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/CreatePlayer'
+#      responses:
+#        '200':
+#          description: List of created player
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Player'
+#        '500':
+#          description: Internal server error
+  /score:
+    get:
+      tags:
+        - Score
+      summary: get all score
+      operationId: getScore
+      responses:
+        '200':
+          description: List of score
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Score'
+        '500':
+          description: Internal server error
+        '400':
+          description: 404 Not Found
+  #    post:
+  #      tags:
+  #        - Score
+  #      summary: create new score
+  #      operationId: createScore
+  #      requestBody:
+  #        content:
+  #          application/json:
+  #            schema:
+  #              $ref: '#/components/schemas/CreateScore'
+  #      responses:
+  #        '200':
+  #          description: List of created score
+  #          content:
+  #            application/json:
+  #              schema:
+  #                type: array
+  #                items:
+  #                  $ref: '#/components/schemas/Score'
+  #        '500':
+  #          description: Internal server error
+  /sponsor:
+    get:
+      tags:
+        - Sponsor
+      summary: get all sponsor
+      operationId: getSponsor
+      responses:
+        '200':
+          description: List of sponsor
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sponsor'
+        '500':
+          description: Internal server error
+#    post:
+#      tags:
+#        - Sponsor
+#      summary: create new sponsor
+#      operationId: createSponsor
+#      requestBody:
+#        content:
+#          application/json:
+#            schema:
+#              $ref: '#/components/schemas/CreateSponsor'
+#      responses:
+#        '200':
+#          description: List of created sponsor
+#          content:
+#            application/json:
+#              schema:
+#                type: array
+#                items:
+#                  $ref: '#/components/schemas/Sponsor'
+#        '500':
+#          description: Internal server error
+components:
+  schemas:
+    CreatePlay:
+      type: object
+      properties:
+        id_team1:
+          $ref: '#/components/schemas/Team'
+        id_team2:
+          $ref: '#/components/schemas/Team'
+        dateplay:
+          type: string
+          format: date-time
+        stadium:
+          type: string
+    Play:
+      type: object
+      properties:
+        id:
+          type: integer
+        dateplay:
+          type: string
+          format: date-time
+        stadium:
+          type: string
+        id_team1:
+          $ref: '#/components/schemas/Team'
+        id_team2:
+          $ref: '#/components/schemas/Team'
+    CreateTeam:
+      type: object
+      properties:
+        name_team:
+          type: string
+        id_play:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+        name_team:
+          type: string
+        player:
+          type: array
+          items:
+            $ref: '#/components/schemas/Player'
+        sponsors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Sponsor'
+      allOf:
+        - $ref: '#/components/schemas/CreateTeam'
+    Player:
+      type: object
+      properties:
+        id:
+          type: integer
+        name_player:
+          type: string
+        nombre:
+          type: integer
+        isGardian:
+          type: boolean
+    CreatePlayer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name_player:
+          type: string
+        nombre:
+          type: integer
+        id_team:
+          type: integer
+    Sponsor:
+      type: object
+      properties:
+        id:
+          type: integer
+        name_sponsor:
+          type: string
+    CreateSponsor:
+      type: object
+      properties:
+        name_sponsor:
+          type: string
+    CreateScore:
+      type: object
+      properties:
+        score_a:
+          type: integer
+        score_b:
+          type: integer
+        minute:
+          type: integer
+        id_play:
+          type: integer
+        id_player:
+          type: integer
+        playtime:
+          type: string
+          format: minute
+        isOnGoal:
+          $ref: '#/components/schemas/Player'
+    Score:
+      type: object
+      properties:
+        id_score:
+          type: integer
+        score_a:
+          type: integer
+        score_b:
+          type: integer
+        minute:
+          type: integer
+        id_play:
+          type: integer
+        id_player:
+          type: integer
+        playtime:
+          type: string
+          format: minute
+        isOnGoal:
+          $ref: '#/components/schemas/Player'

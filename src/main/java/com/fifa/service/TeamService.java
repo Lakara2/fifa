@@ -18,11 +18,12 @@ public class TeamService {
     public List<Team> getAllTeams() {
         return repository.findAll();
     }
-    @Transactional
+    /**
+    //@Transactional
     public List<Team> createTeam(List<Team> teamList) {
         return repository.saveAll(teamList);
     }
-    @Transactional
+    //@Transactional
     public List<Team> updateTeam(List<Team> teamList) {
         return repository.saveAll(teamList);
     }
@@ -38,5 +39,6 @@ public class TeamService {
             throw new RuntimeException("Team."+ teamId + "not found");
         }
     }
+    **/
 
 }

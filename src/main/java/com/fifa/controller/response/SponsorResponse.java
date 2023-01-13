@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class SponsorResponse {
-    private int id;
-    private String Name;
+    private int id_sponsor;
+    private String Name_sponsor;
 }

@@ -5,7 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -27,12 +26,7 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String Name_player;
+    private String name_player;
     private int nombre;
-    @ManyToOne
-    // déclaration d'une table d'association
-    @JoinTable(name = "Team",
-            joinColumns = @JoinColumn(name = "id_team"),
-            inverseJoinColumns = @JoinColumn(name = "id_player"))
-    private Team id_team;
+    private boolean isGardian;
 }

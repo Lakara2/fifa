@@ -18,11 +18,12 @@ public class SponsorService {
     public List<Sponsor> getAllSponsor() {
         return repository.findAll();
     }
-    @Transactional
+    /**
+    //@Transactional
     public List<Sponsor> createSponsor(List<Sponsor> SponsorList) {
         return repository.saveAll(SponsorList);
     }
-    @Transactional
+    //@Transactional
     public List<Sponsor> updateSponsor(List<Sponsor> SponsorList) {
         return repository.saveAll(SponsorList);
     }
@@ -38,5 +39,6 @@ public class SponsorService {
             throw new RuntimeException("Sponsor."+ nom +"not found");
         }
     }
+    **/
 
 }

@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class PlayerResponse {
-    private int id;
-    private String name;
+    private int id_player;
+    private String name_player;
+    private int nombre;
+    private boolean isGardian;
 }
